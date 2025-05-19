@@ -9,25 +9,28 @@ import { isAxiosError } from 'axios'
 export default function LoginView() {
     const navigate = useNavigate()
 
-    const initialValues : LoginForm = {
+    const initialValues: LoginForm = {
         email: '',
         password: ''
     }
     const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues: initialValues })
-    const handleLogin = async (formData:LoginForm) => {
+    const handleLogin = async (formData: LoginForm) => {
         try {
-            const {data} = await api.post(`/auth/login`, formData)
+            const { data } = await api.post('/auth/login', formData, {
+                withCredentials: true
+            })
+
             localStorage.setItem('AUTH_TOKEN', data)
             navigate('/admin')
         } catch (error) {
-            if(isAxiosError(error) && error.response){
+            if (isAxiosError(error) && error.response) {
                 toast.error(error.response?.data.error, {
                     style: {
-                      backgroundColor: "red",
-                      color: "white",
-                      fontWeight: 'bold'
+                        backgroundColor: "red",
+                        color: "white",
+                        fontWeight: 'bold'
                     }
-                  })
+                })
             }
         }
     }

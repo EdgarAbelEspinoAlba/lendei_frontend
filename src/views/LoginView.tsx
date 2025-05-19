@@ -1,4 +1,4 @@
-{/*import { Link, useNavigate } from 'react-router-dom'*/}
+{/*import { Link, useNavigate } from 'react-router-dom'*/ }
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import ErrorMessage from '../components/ErrorMessage'
@@ -40,15 +40,20 @@ export default function LoginView() {
             } finally {
                 setLoading(false)
             }
-        }, 3000)
+        }, 1000)
     }
 
     return (
         <>
             {loading && (
                 <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-                    <div className="bg-white px-10 py-6 rounded-xl shadow-lg text-center text-2xl font-semibold">
-                        Un momento por favor... ⏳
+                    <div className="bg-white px-10 py-6 rounded-xl shadow-lg text-center text-2xl font-semibold space-y-4">
+                        <img
+                            src="/logoLendei.png"
+                            alt="Cargando"
+                            className="mx-auto w-20 h-20"
+                        />
+                        <p>Un momento por favor... ⏳</p>
                     </div>
                 </div>
             )}
@@ -101,15 +106,15 @@ export default function LoginView() {
                 />
             </form>
             {
-            /*
-            <nav className='mt-10'>
-                <Link
-                    className='text-center text-white text-lg block'
-                    to="/auth/register">
-                    ¿No tienes una cuenta? Crear cuenta
-                </Link>
-            </nav>
-            */
+                /*
+                <nav className='mt-10'>
+                    <Link
+                        className='text-center text-white text-lg block'
+                        to="/auth/register">
+                        ¿No tienes una cuenta? Crear cuenta
+                    </Link>
+                </nav>
+                */
             }
         </>
     )

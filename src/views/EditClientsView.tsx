@@ -242,6 +242,31 @@ export default function EditClientsView() {
                 />
             </div>
             <div className="flex items-center gap-4">
+                <label htmlFor="telefono">Teléfono:</label>
+                <input
+                    type="text"
+                    className="border-none bg-slate-100 rounded-lg p-2 flex-1"
+                    placeholder="Teléfono casa"
+                    onInput={(e) => {
+                        const value = e.currentTarget.value.replace(/[^0-9]/g, '')
+                        e.currentTarget.value = value.slice(0, 10)
+                    }}
+                    {...register('telefono')}
+                />
+                <label htmlFor="celular">Celular:</label>
+                <input
+                    type="text"
+                    className="border-none bg-slate-100 rounded-lg p-2 flex-1"
+                    placeholder="Teléfono celular"
+                    onInput={(e) => {
+                        const value = e.currentTarget.value.replace(/[^0-9]/g, '')
+                        e.currentTarget.value = value.slice(0, 10)
+                    }}
+                    {...register('celular')}
+                />
+            </div>
+            
+            <div className="flex items-center gap-4">
                 <label htmlFor="email">E-mail:</label>
                 <input
                     type="text"

@@ -44,6 +44,8 @@ export type Client = {
     ciudad: string,
     estado: string,
     cp: string,
+    telefono: string,
+    celular:string,
     email: string,
     password: string,
     adeudo: number,
